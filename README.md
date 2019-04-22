@@ -1,6 +1,7 @@
 # **Spinnaker-Standalone**
 
 **What is Spinnaker ?**
+
 Spinnaker is an open source, multi-cloud continuous delivery platform for releasing software changes with high velocity and confidence.
 
 **How to Run the script ?**
