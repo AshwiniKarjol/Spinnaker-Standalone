@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # env flags that need to be set:
-
+#Oauth2 Configuration
 CLIENT_ID= <CLIENT_ID>
 CLIENT_SECRET= <CLIENT_SECRET>
 PROVIDER=github
@@ -27,8 +27,6 @@ if [ -z "${REDIRECT_URI}" ] ; then
   exit
 fi
 
-#MY_IP=`curl -s ifconfig.co`
-
 hal config security authn oauth2 edit \
   --client-id $CLIENT_ID \
   --client-secret $CLIENT_SECRET \
@@ -38,6 +36,7 @@ hal config security authn oauth2 enable
 
 hal config security authn oauth2 edit --pre-established-redirect-uri $REDIRECT_URI
 
+#OVERRIDE base URL of Deck and gate
 hal config security ui edit \
     --override-base-url http://${MY_IP}:9000
 

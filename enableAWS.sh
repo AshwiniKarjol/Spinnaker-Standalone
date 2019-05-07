@@ -1,0 +1,21 @@
+#Environment Variable
+#--------------------
+$AWS_ACCOUNT_NAME=
+$ACCOUNT_ID=
+$AWS_ACCESS_KEY_ID=
+$AWS_SECRET_KEY_ID=
+$AWS_DEFAULT_REGION=
+
+#s3
+#----------
+echo $AWS_SECRET_KEY_ID | hal config storage s3 edit --access-key-id $AWS_ACCESS_KEY_ID --secret-access-key
+hal config storage edit --type s3
+
+#AWS Provider
+#------------
+
+echo $AWS_SECRET_KEY_ID | hal config provider aws edit --access-key-id $AWS_ACCESS_KEY_ID --secret-access-key
+hal config provider aws account add $AWS_ACCOUNT_NAME --account-id ${ACCOUNT_ID} --assume-role role/SpinnakerManaged
+hal config provider aws account edit $AWS_ACCOUNT_NAME --regions $AWS_DEFAULT_REGION
+hal config provider aws enable
+
