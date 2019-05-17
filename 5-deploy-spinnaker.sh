@@ -9,7 +9,7 @@ sudo systemctl start redis-server
 echo 'spinnaker.s3.versioning: false' > ~/.hal/default/profiles/front50-local.yml
 
 # env flag that need to be set:
-SPINNAKER_VERSION=1.13.5
+SPINNAKER_VERSION=1.13.7
 
 set -e
 
